@@ -8,4 +8,4 @@ Try: pip install -r requirements.txt
 
 ## Usage
 
-I can't think of any usage yet.
+1. Turn on OAUTH on your own IBKR account.
