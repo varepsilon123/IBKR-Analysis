@@ -21,14 +21,14 @@ def get(url, params=None, headers=None):
 
 def post(url, payload=None, headers=None):
     try:
-        response = requests.post(url, json=payload, timeout=10)
+        response = requests.post(url, headers=headers, json=payload, timeout=10, verify=False)
         response.raise_for_status()
 
-        if response.status_code == 201:
-            data = response.json()
-            return data
+        if response.status_code in [200, 201]:
+            return response  # Return the full response object
         else:
             print(f'Failed to post data: {response.status_code}')
+            return response
     except requests.exceptions.HTTPError as http_err:
         print(f'HTTP error occurred: {http_err}')
     except requests.exceptions.ConnectionError as conn_err:
