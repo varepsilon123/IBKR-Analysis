@@ -2,11 +2,11 @@ import requests
 
 def get(url, params=None, headers=None):
     try:
-        response = requests.get(url, headers=headers, params=params, timeout=10)
+        response = requests.get(url, headers=headers, params=params, timeout=10, verify=False)
         response.raise_for_status()  # Raises an HTTPError for bad responses (4xx or 5xx)
 
         if response.status_code == 200:
-            data = response.json()  # Assuming the response is in JSON format
+            data = response.json()
             return data
         else:
             print(f'Failed to retrieve data: {response.status_code}')
@@ -25,7 +25,8 @@ def post(url, payload=None, headers=None):
         response.raise_for_status()
 
         if response.status_code in [200, 201]:
-            return response  # Return the full response object
+            data = response.json()
+            return data
         else:
             print(f'Failed to post data: {response.status_code}')
             return response

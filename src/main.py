@@ -1,4 +1,4 @@
-from src.controller.auth import test
+from controller.auth import test
 
 def main():
     # print("Hello, world!")
