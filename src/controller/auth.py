@@ -50,7 +50,7 @@ def logout():
 
     return response
 
-def test():
+def auth_test():
     try:
         response = get_auth_status()
         print(f"Response Body: {response}")
@@ -69,6 +69,3 @@ def test():
 
     except Exception as e:
         print(f"Error: {e}")
-
-if __name__ == "__main__":
-    test()

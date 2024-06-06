@@ -1,8 +1,7 @@
-from controller.auth import test
+from controller.auth import auth_test
 
 def main():
-    # print("Hello, world!")
-    test()
+    auth_test()
 
 if __name__ == "__main__":
     main()
