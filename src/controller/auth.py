@@ -1,6 +1,6 @@
 import os
 import urllib3
-from service.requests import get, post
+from ..service.requests import get, post
 from dotenv import load_dotenv
 
 
