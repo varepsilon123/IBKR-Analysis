@@ -1,7 +1,7 @@
 import os
 import urllib3
 from dotenv import load_dotenv
-from service.requests import get
+from ..service.requests import get
 
 
 # Load environment variables from .env file
