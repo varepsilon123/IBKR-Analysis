@@ -1,6 +1,6 @@
 import os
 import urllib3
-from ..service.requests import get, post
+from service.requests import get, post
 from dotenv import load_dotenv
 
 
@@ -49,23 +49,3 @@ def logout():
     response = post(url=request_url, payload=payload)
 
     return response
-
-def auth_test():
-    try:
-        response = get_auth_status()
-        print(f"Response Body: {response}")
-
-        init = init_brokerage_session()
-        print(f"Response Body: {init}")
-
-        ping = tickle()
-        print(f"Response Body: {ping}")
-
-        validate = validate_sso()
-        print(f"Response Body: {validate}")
-
-        # logout_result = logout()
-        # print(f"Response Body: {logout_result}")
-
-    except Exception as e:
-        print(f"Error: {e}")

@@ -4,3 +4,4 @@ __pycache__/
 .DS_Store
 *.pem
 .env
+ibkr_analysis.egg-info
