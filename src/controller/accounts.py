@@ -1,11 +1,10 @@
 import os
 import urllib3
 from dotenv import load_dotenv
-from ..service.requests import get
+from service.requests import get
 
-
-# Load environment variables from .env file
-load_dotenv()
+# Load environment variables from .env file, force reload
+load_dotenv(override=True)
 
 # Suppress only the single InsecureRequestWarning from urllib3 needed for self-signed certificates
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -19,9 +18,15 @@ def account_pnl():
 
     return response
 
+def portfolio_accounts():
+    request_url = f"{BASE_URL}/portfolio/accounts"
+    response = get(url=request_url)
+
+    return response
+
 def accounts_test():
     try:
-        response = account_pnl()
+        response = portfolio_accounts()
         print(f"Response Body: {response}")
 
     except Exception as e:
